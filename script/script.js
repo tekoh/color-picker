@@ -35,7 +35,7 @@ function inputEdit(element) {
         }
     }
 
-    const regex = /[^a-f0-9\s]/g
+    const regex = /[^a-f0-9]/g
 
     if (element.value.substr(1, 7).match(regex)) {
         element.value = "#" + element.value.replace(regex, "")
