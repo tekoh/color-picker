@@ -29,8 +29,8 @@
 </head>
 <body class="preload">
 
-    <div id="buttons-container">
-        <a href="javascript:void(0);" class="button-command" id="copy-button" onclick="copyHex()">
+    <div id="buttons-container" draggable="false">
+        <a href="javascript:void(0);" draggable="false" class="button-command" id="copy-button" onclick="copyHex()">
             
             
             <svg viewBox="0 0 488.3 488.3" style="enable-background:new 0 0 488.3 488.3;" xml:space="preserve">
@@ -46,7 +46,7 @@
 
         </a>
 
-        <a href="javascript:void(0);" class="button-command" id="refresh-button" onclick="randomColor()">
+        <a href="javascript:void(0);" draggable="false" class="button-command" id="refresh-button" onclick="randomColor()">
         
             <svg viewBox="0 0 489.711 489.711" style="enable-background:new 0 0 489.711 489.711;" xml:space="preserve">
 
@@ -66,8 +66,8 @@
         </a>
     </div>
     
-    <div id="color-selector">
-        <input type="text" value="#" onkeyup="inputEdit(this)" maxlength="7" spellcheck="false" autofocus="true" autocomplete="off" autocorrect="off" autocapitalize="off" >
+    <div id="color-selector" draggable="false">
+        <input type="text" value="#" onkeyup="inputEdit(this)" maxlength="7" spellcheck="false" autofocus="true" autocomplete="off" autocorrect="off" autocapitalize="off" draggable="false" >
     </div>
 
 </body>
