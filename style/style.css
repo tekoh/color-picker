@@ -48,16 +48,12 @@ body {
     left: 50%;
     transform: translate(-50%, 250%);
     transition: 0.5s;
-    overflow: hidden;
     text-align: center;
-    height: max-content;
 }
 
 .button-command {
     margin: 0rem 2rem;
-    display: inline-block;
     height: 100%;
-    overflow: hidden;
 }
 
 .button-command svg {
