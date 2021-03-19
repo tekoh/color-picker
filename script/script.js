@@ -48,10 +48,10 @@ function inputEdit(element) {
 
     if (luminance < 40) {
         $("#color-selector input").css("color", "white")
-        $("#copy-button svg").css("fill", "white")
+        $(".button-command svg").css("fill", "white")
     } else {
         $("#color-selector input").css("color", "black")
-        $("#copy-button svg").css("fill", "black")
+        $(".button-command svg").css("fill", "black")
     }
 }
 

@@ -41,14 +41,18 @@ body {
     left: 50%;
     transform: translate(-50%, -250%);
     transition: 0.5s;
-    overflow: visible;
-    width: 20%;
+    overflow: hidden;
+    width: 100%;
     text-align: center;
+    height: max-content;
+    padding-top: 10px;
 }
 
 .button-command {
-    margin: 0rem 2rem;
+    margin: 0rem 5rem;
     display: inline-block;
+    height: 100%;
+    overflow: hidden;
 }
 
 .button-command svg {
@@ -56,8 +60,8 @@ body {
     transition: 0.3s;
 }
 
-.button-command svg:hover {
-    fill: rgb(184, 184, 184);
+#copy-button {
+    margin-bottom: 1rem;
 }
 
 @media only screen and (min-width: 300px) and (orientation: portrait) {
