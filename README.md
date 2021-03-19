@@ -1,4 +1,4 @@
-# color picker
+# 🎨 color picker
 
 #### status: development
 
