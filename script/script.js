@@ -1,5 +1,10 @@
 let hex
 
+$(window).on("load", () => {
+    $("#color-selector input")[0].selectionStart = $("#color-selector input")[0].selectionEnd = 10000
+    $("body").removeClass("preload")
+})
+
 function inputEdit(element) {
     element.value = element.value.toLowerCase()
 
