@@ -48,13 +48,12 @@ body {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -250%);
+    transform: translate(-50%, 250%);
     transition: 0.5s;
     overflow: hidden;
     width: 100%;
     text-align: center;
     height: max-content;
-    padding-top: 10px;
 }
 
 .button-command {
@@ -78,7 +77,15 @@ body {
         font-size: 10vh;
     }
 
+    #buttons-container {
+        transform: translate(-50%, -50%);
+    }
+
     .button-command svg {
+        height: 2rem;
+    }
+
+    .button-command img {
         height: 2rem;
     }
 }
