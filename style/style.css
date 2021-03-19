@@ -69,10 +69,6 @@ body {
         font-size: 10vh;
     }
 
-    #buttons-container {
-        transform: translate(-50%, -50%);
-    }
-
     .button-command {
         margin: 0;
     }
