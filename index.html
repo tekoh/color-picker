@@ -6,31 +6,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" href="./content/top.png">
-    <title>colour picker</title>
+    <link rel="icon" href="./assets/top.png">
+    <title>random hex colors 🎨</title>
 
     <!-- social embeds -->
 
-    <meta property="og:type" content="click.tekoh.net" />
-    <meta property="og:title" content="click test" />
-    <meta property="og:description" content="modern and fast click test" />
-    <meta property="og:url" content="https://click.tekoh.net" />
+    <meta property="og:type" content="color.tekoh.net" />
+    <meta property="og:title" content="random hex colors" />
+    <meta property="og:description" content="simplistic hex color generator & preview" />
+    <meta property="og:url" content="https://color.tekoh.net" />
     <meta name="theme-color" content="#fffffe" />
-    <meta name="description" content="modern and fast click test" />
+    <meta name="description" content="simplistic hex color generator & preview" />
     <meta name="twitter:card" content="summary">
     <meta name="twitter:creator" content="xdtekoh">
-    <meta name="twitter:description" content="modern and fast click test">
-    <meta name="twitter:title" content="click test">
+    <meta name="twitter:description" content="simplistic hex color generator & preview">
+    <meta name="twitter:title" content="random hex colors">
 
     <!-- scripts -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
     <script src="./script/script.js"> </script>
 </head>
-<body>
+<body class="preload">
 
-    <div id="buttons-container">
-        <a href="javascript:void(0);" class="button-command" id="copy-button" onclick="copyHex()">
+    <div id="buttons-container" draggable="false">
+        <a href="javascript:void(0);" draggable="false" class="button-command" id="copy-button" onclick="copyHex()">
             
             
             <svg viewBox="0 0 488.3 488.3" style="enable-background:new 0 0 488.3 488.3;" xml:space="preserve">
@@ -46,7 +46,7 @@
 
         </a>
 
-        <a href="javascript:void(0);" class="button-command" id="refresh-button" onclick="randomColor()">
+        <a href="javascript:void(0);" draggable="false" class="button-command" id="refresh-button" onclick="randomColor()">
         
             <svg viewBox="0 0 489.711 489.711" style="enable-background:new 0 0 489.711 489.711;" xml:space="preserve">
 
@@ -66,9 +66,12 @@
         </a>
     </div>
     
-    <div id="color-selector">
-        <input type="text" value="#" onkeyup="inputEdit(this)" maxlength="7" spellcheck="false" autofocus="true" autocomplete="off" autocorrect="off" autocapitalize="off" >
+    <div id="color-selector" draggable="false">
+        <input type="text" value="#" onkeyup="inputEdit(this)" maxlength="7" spellcheck="false" autofocus="true" autocomplete="off" autocorrect="off" autocapitalize="off" draggable="false" >
     </div>
 
 </body>
 </html>
+
+<!-- credits -->
+<!-- ALL ICONS FOUND ON FLATICON.COM -->

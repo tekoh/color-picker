@@ -1,7 +1,25 @@
 let hex
 
-function inputEdit(element) {
+$(window).on("load", () => {
+    $("#color-selector input")[0].selectionStart = $("#color-selector input")[0].selectionEnd = 10000
+    $("body").removeClass("preload")
 
+    if (window.location.hash != "") {
+        const element = $("#color-selector input")[0]
+
+        element.value = window.location.hash.substr(0, 7)
+
+        inputEdit(element)
+    } else {
+        const element = $("#color-selector input")[0]
+
+        element.value = `#${getRandomHex()}`
+
+        inputEdit(element)
+    }
+})
+
+function inputEdit(element) {
     element.value = element.value.toLowerCase()
 
     if (!element.value.startsWith("#")) {
@@ -9,7 +27,12 @@ function inputEdit(element) {
     }
 
     if (element.value.length > 7) {
-        element.value = element.value.substr(0, 7)
+
+        if (element.value.startsWith("##")) {
+            element.value = element.value.substr(1, 8)
+        } else {
+            element.value = element.value.substr(0, 7)
+        }
     }
 
     const regex = /[^a-f0-9\s]/g
@@ -44,7 +67,9 @@ function inputEdit(element) {
 
     const luminance = getLuminance("#" + newHex)
     
-    hex = newHex
+    hex = "#" + newHex
+
+    window.location.hash = hex
 
     if (luminance < 40) {
         $("#color-selector input").css("color", "white")
@@ -56,8 +81,18 @@ function inputEdit(element) {
 }
 
 function copyHex() {
+    $("#color-selector input").val(hex)
+    $("#color-selector input").value = hex
     $("#color-selector input").select()
     document.execCommand("copy")
+}
+
+function randomColor() {
+    const element = $("#color-selector input")[0]
+
+    element.value = `#${getRandomHex()}`
+
+    inputEdit(element)
 }
 
 function getLuminance() {
@@ -74,6 +109,9 @@ function getLuminance() {
     return luma
 }
 
+function getRandomHex() {
+    return Math.floor(Math.random() * 16777215).toString(16)
+}
 
 //totally not copy and pasted from stackoverflow
 function componentToHex(c) {
