@@ -9,21 +9,63 @@
     overflow-x: hidden;
 }
 
-#center {
+body {
+    background-color: rgb(39, 39, 39);
+    transition: 0.3s;
+    height: 100vh;
+    width: 100vw;
+}
+
+#color-selector {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    height: 30vh;
+    height: 20vh;
     width: 100vw;
     text-align: center;
 }
 
-#center input {
+#color-selector input {
     all: unset;
-    height: 90%;
+    height: 100%;
     width: 90%;
     color: black;
-    font-size: 10rem;
+    font-size: 15vh;
     text-align: center;
+}
+
+#buttons-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -250%);
+    transition: 0.5s;
+    overflow: visible;
+    width: 20%;
+    text-align: center;
+}
+
+.button-command {
+    margin: 0rem 2rem;
+    display: inline-block;
+}
+
+.button-command svg {
+    height: 3rem;
+    transition: 0.3s;
+}
+
+.button-command svg:hover {
+    fill: rgb(184, 184, 184);
+}
+
+@media only screen and (min-width: 300px) and (orientation: portrait) {
+    #color-selector input {
+        font-size: 10vh;
+    }
+
+    .button-command svg {
+        height: 2rem;
+    }
 }

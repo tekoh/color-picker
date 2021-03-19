@@ -1,4 +1,9 @@
+let hex
+
 function inputEdit(element) {
+
+    element.value = element.value.toLowerCase()
+
     if (!element.value.startsWith("#")) {
         element.value = "#" + element.value
     }
@@ -7,42 +12,75 @@ function inputEdit(element) {
         element.value = element.value.substr(0, 7)
     }
 
-    const regex = /[^A-z0-9\s]/g
+    const regex = /[^a-f0-9\s]/g
 
     if (element.value.substr(1, 7).match(regex)) {
         element.value = "#" + element.value.replace(regex, "")
     }
 
-    if (checkBrightness(element.value)) {
-        $("#center input").css("color", "white")
-    } else {
-        $("#center input").css("color", "black")
+    let newHex = element.value.substr(1)
+
+    if (newHex.length == 1) {
+        newHex = newHex.repeat(6)
+    } else if (newHex.length == 2) {
+        newHex = newHex.repeat(3)
+    } else if (newHex.length >= 3 && newHex.length != 6) {
+        const r = newHex.split("")[0]
+        const g = newHex.split("")[1]
+        const b = newHex.split("")[2]
+
+        newHex = `${r}${r}${g}${g}${b}${b}`
+    } else if (newHex.length == 4) {
+        const r = newHex.split("")[0]
+        const g = newHex.split("")[1]
+        const b = newHex.split("")[2]
+
+        newHex = `${r}${r}${g}${g}${b}${b}`
     }
+
+    if (newHex != "") {
+        $("body").css("background-color", "#" + newHex)
+    }
+
+    const luminance = getLuminance("#" + newHex)
     
-    $("body").css("background-color", element.value)
-}
+    hex = newHex
 
-function checkBrightness(hex) {
-    let c = hex.substring(1);      // strip #
-
-    if (c.length == 3) {
-        c = `${c.split("")[0]}${c.split("")[0]}${c.split("")[1]}${c.split("")[1]}${c.split("")[2]}${c.split("")[2]}`
-    }
-
-    console.log(c)
-
-    const rgb = parseInt(c, 16);   // convert rrggbb to decimal
-    const r = (rgb >> 16) & 0xff;  // extract red
-    const g = (rgb >>  8) & 0xff;  // extract green
-    const b = (rgb >>  0) & 0xff;  // extract blue
-
-    const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
-
-    console.log(luma)
-
-    if (luma < 40) {
-        return true
+    if (luminance < 40) {
+        $("#color-selector input").css("color", "white")
+        $("#copy-button svg").css("fill", "white")
     } else {
-        return false
+        $("#color-selector input").css("color", "black")
+        $("#copy-button svg").css("fill", "black")
     }
 }
+
+function copyHex() {
+    $("#color-selector input").select()
+    document.execCommand("copy")
+}
+
+function getLuminance() {
+    let rgb = document.body.style.backgroundColor.substr(4)
+
+    rgb = rgb.substr(0, rgb.length - 1)
+
+    const r = rgb.split(", ")[0]
+    const g = rgb.split(", ")[1]
+    const b =  rgb.split(", ")[2]
+
+    const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b // per ITU-R BT.709
+
+    return luma
+}
+
+
+//totally not copy and pasted from stackoverflow
+function componentToHex(c) {
+    const hex = c.toString(16);
+    return hex.length == 1 ? "0" + hex : hex;
+  }
+  
+  function rgbToHex(r, g, b) {
+    return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+  }
