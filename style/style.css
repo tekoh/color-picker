@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
 * {
     padding: 0;
@@ -6,7 +7,6 @@
     text-decoration: none;
     scroll-behavior: smooth;
     font-family: 'Open Sans', sans-serif;
-    overflow-x: hidden;
 }
 
 .preload * {
@@ -21,8 +21,6 @@
 body {
     background-color: rgb(39, 39, 39);
     transition: 0.3s;
-    height: 100vh;
-    width: 100vw;
 }
 
 #color-selector {
@@ -42,31 +40,32 @@ body {
     color: black;
     font-size: 15vh;
     text-align: center;
+    font-family: 'Inconsolata', monospace;
 }
 
 #buttons-container {
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -250%);
+    transform: translate(-50%, 250%);
     transition: 0.5s;
-    overflow: hidden;
-    width: 100%;
     text-align: center;
     height: max-content;
-    padding-top: 10px;
 }
 
 .button-command {
     margin: 0rem 2rem;
     display: inline-block;
     height: 100%;
-    overflow: hidden;
 }
 
 .button-command svg {
-    height: 3rem;
+    height: 4vh;
     transition: 0.3s;
+}
+
+.button-command img {
+    height: 4vh;
 }
 
 @media only screen and (min-width: 300px) and (orientation: portrait) {
@@ -74,7 +73,19 @@ body {
         font-size: 10vh;
     }
 
+    #buttons-container {
+        transform: translate(-50%, 350%);
+    }
+
+    .button-command {
+        margin: 0 1rem;
+    }
+
     .button-command svg {
+        height: 2rem;
+    }
+
+    .button-command img {
         height: 2rem;
     }
 }
