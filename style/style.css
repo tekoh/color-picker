@@ -36,8 +36,6 @@ body {
 
 #color-selector input {
     all: unset;
-    height: 100%;
-    width: 90%;
     color: black;
     font-size: 15vh;
     text-align: center;
@@ -51,7 +49,6 @@ body {
     transform: translate(-50%, 250%);
     transition: 0.5s;
     overflow: hidden;
-    width: 100%;
     text-align: center;
     height: max-content;
 }
@@ -79,6 +76,10 @@ body {
 
     #buttons-container {
         transform: translate(-50%, -50%);
+    }
+
+    .button-command {
+        margin: 0;
     }
 
     .button-command svg {
