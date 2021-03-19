@@ -1,7 +1,6 @@
 let hex
 
 function inputEdit(element) {
-
     element.value = element.value.toLowerCase()
 
     if (!element.value.startsWith("#")) {
@@ -44,7 +43,7 @@ function inputEdit(element) {
 
     const luminance = getLuminance("#" + newHex)
     
-    hex = newHex
+    hex = "#" + newHex
 
     if (luminance < 40) {
         $("#color-selector input").css("color", "white")
@@ -56,6 +55,9 @@ function inputEdit(element) {
 }
 
 function copyHex() {
+    console.log(hex)
+    $("#color-selector input").val(hex)
+    $("#color-selector input").value = hex
     $("#color-selector input").select()
     document.execCommand("copy")
 }
