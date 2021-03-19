@@ -22,8 +22,6 @@
 body {
     background-color: rgb(39, 39, 39);
     transition: 0.3s;
-    height: 100vh;
-    width: 100vw;
 }
 
 #color-selector {
@@ -67,8 +65,12 @@ body {
 }
 
 .button-command svg {
-    height: 3rem;
+    height: 4vh;
     transition: 0.3s;
+}
+
+.button-command img {
+    height: 4vh;
 }
 
 @media only screen and (min-width: 300px) and (orientation: portrait) {
