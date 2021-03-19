@@ -110,7 +110,14 @@ function getLuminance() {
 }
 
 function getRandomHex() {
-    return Math.floor(Math.random() * 16777215).toString(16)
+    
+    let a = Math.floor(Math.random() * 16777215).toString(16)
+
+    while (a.length != 6) {
+        a = Math.floor(Math.random() * 16777215).toString(16)
+    }
+
+    return a
 }
 
 //totally not copy and pasted from stackoverflow
