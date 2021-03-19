@@ -13,7 +13,12 @@ function inputEdit(element) {
     }
 
     if (element.value.length > 7) {
-        element.value = element.value.substr(0, 7)
+
+        if (element.value.startsWith("##")) {
+            element.value = element.value.substr(1, 8)
+        } else {
+            element.value = element.value.substr(0, 7)
+        }
     }
 
     const regex = /[^a-f0-9\s]/g
