@@ -24,6 +24,18 @@ body {
     user-select: none;
 }
 
+header {
+    width: 100%;
+    text-align: center;
+    animation: header-in 1.5s;
+}
+
+header h1 {
+    display: inline-block;
+    margin: 2rem;
+    transition: 0.3s;
+}
+
 #color-selector {
     position: absolute;
     top: 50%;
@@ -42,6 +54,8 @@ body {
     font-size: 15vh;
     text-align: center;
     font-family: 'Inconsolata', monospace;
+    transition: 0.3s;
+    animation: fade-in 1s;
 }
 
 #buttons-container {
@@ -52,6 +66,7 @@ body {
     transition: 0.5s;
     text-align: center;
     height: auto;
+    animation: fade-in 1.5s;
 }
 
 .button-command {
@@ -80,6 +95,27 @@ span {
 
 ::-moz-selection {
     background: rgb(90, 90, 90);
+}
+
+@keyframes header-in {
+    0% {
+        margin-top: -15rem;
+    }
+    100% {
+        margin-top: 0;
+    }
+}
+
+@keyframes fade-in {
+    0% {
+        opacity: 0%;
+    }
+    20% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
 }
 
 @media only screen and (min-width: 300px) and (orientation: portrait) {
