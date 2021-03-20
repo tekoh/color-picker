@@ -50,7 +50,7 @@ body {
     transform: translate(-50%, 250%);
     transition: 0.5s;
     text-align: center;
-    height: max-content;
+    height: auto;
 }
 
 .button-command {
