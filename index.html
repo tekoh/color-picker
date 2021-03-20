@@ -27,25 +27,24 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
     <script src="./script/color.js"> </script>
 </head>
-<body class="preload">
+<body class="preload" onselectstart="return false">
+    <header>
+        <h1><span></span></h1>
+    </header>
 
-    <div id="buttons-container" draggable="false">
-        <a href="javascript:void(0);" draggable="false" class="button-command" id="copy-button" onclick="copyHex()">
+    <div id="buttons-container" draggable="false" onselect="return false">
+        <span draggable="false" class="button-command" id="copy-button" onclick="copyHex()">
             <!-- <img src="./assets/copy.png" draggable="false"> -->
             <svg viewBox="0 0 488.3 488.3" style="enable-background:new 0 0 488.3 488.3;" xml:space="preserve">
-
             <path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124
                 C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124
                 c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/>
             <path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227
                 c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6
                 V38.6C439.65,17.3,422.35,0,401.05,0z"/>
-
             </svg>
-
-        </a>
-
-        <a href="javascript:void(0);" draggable="false" class="button-command" id="refresh-button" onclick="randomColor()">
+        </span>
+        <span draggable="false" class="button-command" id="refresh-button" onclick="randomColor()">
             <!-- <img src="./assets/refresh.png" alt="" draggable="false"> -->
         
             <svg viewBox="0 0 489.711 489.711" style="enable-background:new 0 0 489.711 489.711;" xml:space="preserve">
@@ -59,10 +58,8 @@
                     c-7.4,0.7-12.9,7.2-12.2,14.7l8,88.9c0.6,7,6.5,12.3,13.4,12.3c0.4,0,0.8,0,1.2-0.1c7.4-0.7,12.9-7.2,12.2-14.7l-4.8-54.1
                     c36.3,29.4,80.8,46.5,128.3,48.9c3.8,0.2,7.6,0.3,11.3,0.3c55.1,0,107.5-20.2,148.7-57.4
                     C456.056,357.911,481.656,274.811,462.456,195.511z"/>
-
             </svg>
-
-        </a>
+        </span>
     </div>
     
     <div id="color-selector" draggable="false">

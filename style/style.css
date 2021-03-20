@@ -21,6 +21,7 @@
 body {
     background-color: rgb(39, 39, 39);
     transition: 0.3s;
+    user-select: none;
 }
 
 #color-selector {
@@ -66,6 +67,19 @@ body {
 
 .button-command img {
     height: 4vh;
+}
+
+span {
+    cursor: pointer;
+}
+
+::selection {
+    color: #fff;
+    background: #64646473;
+}
+
+::-moz-selection {
+    background: rgb(90, 90, 90);
 }
 
 @media only screen and (min-width: 300px) and (orientation: portrait) {
