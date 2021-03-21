@@ -13,6 +13,8 @@ $(window).on("load", () => {
             return location.reload()
         }
 
+        name.split("_").join(" ")
+
         const background = code.split("&?")[2]
 
         if (!background) {
