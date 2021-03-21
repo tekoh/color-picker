@@ -15,7 +15,7 @@ $(window).on("load", () => {
 
         name.split("_").join(" ")
 
-        const background = code.split("&?")[2]
+        const background = "#" + code.split("&?")[2]
 
         if (!background) {
             window.location.hash = ""
@@ -30,7 +30,7 @@ $(window).on("load", () => {
         }
 
         for (c of colors) {
-            $("#palette-colors-container").append(`<div id="${c.substr(1, 7)}-palette" class="palette-color" style="background-color: ${c}" onclick="showColor('${c}')"><h2 id="${c.substr(1, 7)}-palette-label" class="label" >${c}</p></div>`)
+            $("#palette-colors-container").append(`<div id="${c}-palette" class="palette-color" style="background-color: #${c}" onclick="showColor('#${c}')"><h2 id="${c}-palette-label" class="label" >#${c}</p></div>`)
         }
 
         $("body").css("background-color", background)
