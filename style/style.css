@@ -337,10 +337,6 @@ span {
         margin: 1rem;
     }
 
-    .label {
-        display: none;
-    }
-
     @keyframes header-in {
         0% {
             margin-top: -15rem;

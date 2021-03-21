@@ -13,10 +13,8 @@ function bindSavedEvent() {
 
         if (luma < 40) {
             $(`#${id}-label`).css("color", "white")
-            console.log("white")
         } else {
             $(`#${id}-label`).css("color", "black")
-            console.log("black")
         }
 
         $(`#${id}-label`).css("opacity", "100%")
@@ -30,7 +28,7 @@ function bindSavedEvent() {
         $(`#${id}-label`).css("opacity", "0%")
     })
 
-    $(".saved-color").click(event => {
+    $(".saved-color").on("click", event => {
         event.preventDefault()
 
         const id = event.currentTarget.id
@@ -89,7 +87,7 @@ function bindHistoryEvent() {
         $(`#${id}-label`).css("opacity", "0%")
     })
 
-    $(".history-color").click(event => {
+    $(".history-color").on("click", event => {
         event.preventDefault()
 
         const id = event.currentTarget.id
@@ -148,7 +146,9 @@ function bindPaletteEvent() {
         $(`#${id}-label`).css("opacity", "0%")
     })
 
-    $(".palette-color").click(event => {
+    $().tou
+
+    $(".palette-color").on("click", event => {
         event.preventDefault()
 
         const id = event.currentTarget.id
