@@ -1,4 +1,5 @@
 let hex
+let data
 
 function inputEdit(element) {
     element.value = element.value.toLowerCase()
@@ -44,6 +45,8 @@ function inputEdit(element) {
 
     if (newHex != "") {
         $("body").css("background-color", "#" + newHex)
+        data.addToHistory(`#${newHex}`)
+        data.save()
     }
 
     const luminance = getLuminance("#" + newHex)
@@ -103,12 +106,20 @@ function getRandomHex() {
     return a
 }
 
+
+function getData() {
+    data = Data.fromCookie()
+    return console.log(data)
+}
+
 //totally not copy and pasted from stackoverflow
 function componentToHex(c) {
     const hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
-  }
+}
   
   function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-  }
+}
+
+getData()
