@@ -69,11 +69,13 @@ function inputEdit(element) {
         $("#color-selector input").css("color", "white")
         $(".button-command svg").css("fill", "white")
         $("h1").css("color", "white")
+        $("p").css("color", "black")
         $("#save-button").css("border-bottom-color", `rgb(255, 255, 255, ${saveOpacity})`)
     } else {
         $("#color-selector input").css("color", "black")
         $(".button-command svg").css("fill", "black")
         $("h1").css("color", "black")
+        $("p").css("color", "black")
         $("#save-button").css("border-bottom-color", `rgb(0, 0, 0, ${saveOpacity})`)
     }
 }
