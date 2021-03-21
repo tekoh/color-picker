@@ -117,7 +117,7 @@ function getRandomHex() {
 function getData() {
     data = Data.fromCookie()
     setTimeout(() => {
-        loadSaved(data.favourites)
+        loadSaved(data.getFavourites())
     }, 500);
     
     return console.log(data)
@@ -132,10 +132,29 @@ function saveColor() {
         saveOpacity = 0
         $(hex).remove()
     } else {
+        if (data.getFavourites().length == 100) {
+
+            if ($("#max-saved").hasClass("fade-in") || $("#max-saved").hasClass("fade-out") || $("#max-saved").css("display") == "block") {
+                return
+            }
+            
+            $("#max-saved").addClass("fade-in")
+            $("#max-saved").css("display", "block")
+            
+            setTimeout(() => {
+                $("#max-saved").removeClass("fade-in")
+                $("#max-saved").addClass("fade-out")
+
+                setTimeout(() => {
+                    $("#max-saved").css("display", "none")
+                    $("#max-saved").removeClass("fade-out")
+                }, 600);
+            }, 2000);
+            return
+        }
         data.addToFavourites(hex)
         saveOpacity = 100
         $("#saved-colors-container").prepend(`<div id="${hex.substr(1, 7)}" class="saved-color" style="background-color: ${hex}" onclick="showColor('${hex}')"></div>`)
-        bindSavedEvent()
     }
 
     data.save()
@@ -145,6 +164,9 @@ function saveColor() {
     } else {
         $("#save-button").css("border-bottom-color", `rgb(0, 0, 0, ${saveOpacity})`)
     }
+
+    $("#color-counter").text(data.getFavourites().length)
+    bindSavedEvent()
 }
 
 function showColor(color) {
