@@ -43,3 +43,11 @@ function loadSaved(saved) {
     $("#color-counter").text(saved.length)
     bindSavedEvent()
 }
+
+function loadHistory(history) {
+    for (color of history) {
+        $("#history-colors-container").append(`<div id="${color.substr(1, 7)}-history" class="history-color" style="background-color: ${color}" onclick="showColor('${color}')"><h2 id="${color.substr(1, 7)}-history-label" class="label" >${color}</p></div>`)
+    }
+
+    bindHistoryEvent()
+}

@@ -118,6 +118,7 @@ function getData() {
     data = Data.fromCookie()
     setTimeout(() => {
         loadSaved(data.getFavourites())
+        loadHistory(data.getHistory())
     }, 500);
     
     return console.log(data)
@@ -167,6 +168,13 @@ function saveColor() {
 
     $("#color-counter").text(data.getFavourites().length)
     bindSavedEvent()
+}
+
+function clearFavourites() {
+    data.deleteAllFavourites()
+    data.save()
+    $("#saved-colors-container").empty()
+    $("#color-counter").text("0")
 }
 
 function showColor(color) {
