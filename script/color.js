@@ -45,8 +45,12 @@ function inputEdit(element) {
 
     if (newHex != "") {
         $("body").css("background-color", "#" + newHex)
-        data.addToHistory(`#${newHex}`)
-        data.save()
+        if (!data.isInHistory(`#${newHex}`)) {
+            data.addToHistory(`#${newHex}`)
+            data.save()
+            $("#history-colors-container").prepend(`<div id="${newHex}-history" class="history-color" style="background-color: #${newHex}" onclick="showColor('#${newHex}')"><h2 id="${newHex}-history-label" class="label" >#${newHex}</p></div>`)
+            bindHistoryEvent()
+        }
     }
 
     const luminance = getLuminance("#" + newHex)

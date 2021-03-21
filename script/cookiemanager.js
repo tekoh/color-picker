@@ -72,6 +72,16 @@ const Data = class {
         this.history.unshift(hex)
     }
 
+    isInHistory(hex) {
+        const index = this.history.indexOf(hex)
+
+        if (index != -1) {
+            return true
+        } else {
+            return false
+        }
+    }
+
     /**
      * @returns {Array<String>}
      */
