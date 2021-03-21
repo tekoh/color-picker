@@ -22,12 +22,14 @@ body {
     background-color: rgb(39, 39, 39);
     transition: 0.3s;
     user-select: none;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding-bottom: 5rem;
 }
 
 header {
     width: 100%;
     text-align: center;
-    animation: header-in 1.5s;
 }
 
 header h1 {
@@ -49,13 +51,12 @@ header h1 {
 #color-selector input {
     all: unset;
     height: 100%;
-    width: 90%;
+    width: 40vw;
     color: black;
     font-size: 15vh;
     text-align: center;
     font-family: 'Inconsolata', monospace;
     transition: 0.3s;
-    animation: fade-in 1s;
 }
 
 #buttons-container {
@@ -66,7 +67,6 @@ header h1 {
     transition: 0.5s;
     text-align: center;
     height: auto;
-    animation: fade-in 1.5s;
 }
 
 .button-command {
@@ -84,8 +84,16 @@ header h1 {
     height: 4vh;
 }
 
+#save-button {
+    border-bottom: rgba(0, 0, 0, 0) solid 3px;
+}
+
 span {
     cursor: pointer;
+}
+
+#color-counter {
+    cursor: default;
 }
 
 ::selection {
@@ -97,6 +105,105 @@ span {
     background: rgb(90, 90, 90);
 }
 
+.menu {
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    height: 50%;
+    width: 80%;
+    position: absolute;
+    z-index: 10;
+    padding: 3rem;
+    text-align: center;
+}
+
+.menu h1 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.color-container {
+    height: fit-content;
+    width: 100%;
+    padding-bottom: 10rem;
+}
+
+.saved-color {
+    height: 110px;
+    width: 110px;
+    background-color: black;
+    margin: 1rem;
+    border-radius: 0.3rem;
+    box-shadow: 0px 0px 0.5rem rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+    cursor: pointer;
+    display: inline-block;
+    border: solid 1px rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+.saved-color:hover {
+    box-shadow: 0px 0px 0.7rem rgba(0, 0, 0, 0.7);
+    border: solid 1px rgba(255, 255, 255, 0.5);
+}
+
+.label {
+    font-size: 1rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0%;
+    transition: 0.3s;
+}
+
+.error {
+    color: red;
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 1000%);
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #161b1980;
+    border-radius: 1rem;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #202523;
+}
+
+.fade-in {
+    animation: fade-in 1.2s;
+}
+
+.header-in {
+    animation: header-in 1.5s;
+}
+
+.header-out {
+    animation: header-out 0.7s;
+}
+
+.fade-out {
+    animation: fade-out 0.8s;
+}
+
 @keyframes header-in {
     0% {
         margin-top: -15rem;
@@ -104,6 +211,16 @@ span {
     100% {
         margin-top: 0;
     }
+}
+
+@keyframes header-out {
+    0% {
+        margin-top: 0;
+    }
+    100% {
+        margin-top: -15rem;
+    }
+
 }
 
 @keyframes fade-in {
@@ -118,6 +235,15 @@ span {
     }
 }
 
+@keyframes fade-out {
+    0% {
+        opacity: 100%;
+    }
+    80% {
+        opacity: 0%;
+    }
+}
+
 @media only screen and (min-width: 300px) and (orientation: portrait) {
     #color-selector input {
         font-size: 10vh;
@@ -125,6 +251,11 @@ span {
 
     #buttons-container {
         transform: translate(-50%, 350%);
+        width: 100%;
+    }
+
+    #color-selector input {
+        width: 80%;
     }
 
     .button-command {
@@ -137,5 +268,52 @@ span {
 
     .button-command img {
         height: 2rem;
+    }
+
+    header {
+        margin-top: 2rem;
+    }
+
+    header h1 {
+        margin: 0.5rem 1rem;
+        font-size: 1.5rem;
+    }
+
+    .menu {
+        padding: 0;
+        width: 100%;
+    }
+
+    .menu h1 {
+        font-size: 1.5rem;
+    }
+
+    .saved-color {
+        height: 75px;
+        width: 75px;
+        margin: 1rem;
+    }
+
+    .label {
+        display: none;
+    }
+
+    @keyframes header-in {
+        0% {
+            margin-top: -15rem;
+        }
+        100% {
+            margin-top: 2rem;
+        }
+    }
+    
+    @keyframes header-out {
+        0% {
+            margin-top: 2rem;
+        }
+        100% {
+            margin-top: -15rem;
+        }
+    
     }
 }
