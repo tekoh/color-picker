@@ -25,27 +25,46 @@
     <!-- scripts -->
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
-    <script src="./script/script.js"> </script>
+    <script src="./script/cookiemanager.js"> </script>
+    <script src="./script/color.js"> </script>
+    <script src="./script/load.js"> </script>
+    <script src="./script/pagemanager.js"> </script>
 </head>
-<body class="preload">
+<body class="preload" onselectstart="return false">
+    <header>
+        <h1 id="saved-button"><span draggable="false" onclick="showSavePage()">SAVED</span></h1>
+        <h1 id="history-button"><span draggable="false" onclick="showHistoryPage()">HISTORY</span></h1>
+        <h1 id="home-button" style="display: none"><span draggable="false" onclick="showHomePage()">HOME</span></h1>
+    </header>
 
-    <div id="buttons-container" draggable="false">
-        <a href="javascript:void(0);" draggable="false" class="button-command" id="copy-button" onclick="copyHex()">
+    <div id="buttons-container" draggable="false" onselect="return false">
+        <span draggable="false" class="button-command" id="copy-button" onclick="copyHex()">
             <!-- <img src="./assets/copy.png" draggable="false"> -->
             <svg viewBox="0 0 488.3 488.3" style="enable-background:new 0 0 488.3 488.3;" xml:space="preserve">
-
             <path d="M314.25,85.4h-227c-21.3,0-38.6,17.3-38.6,38.6v325.7c0,21.3,17.3,38.6,38.6,38.6h227c21.3,0,38.6-17.3,38.6-38.6V124
                 C352.75,102.7,335.45,85.4,314.25,85.4z M325.75,449.6c0,6.4-5.2,11.6-11.6,11.6h-227c-6.4,0-11.6-5.2-11.6-11.6V124
                 c0-6.4,5.2-11.6,11.6-11.6h227c6.4,0,11.6,5.2,11.6,11.6V449.6z"/>
             <path d="M401.05,0h-227c-21.3,0-38.6,17.3-38.6,38.6c0,7.5,6,13.5,13.5,13.5s13.5-6,13.5-13.5c0-6.4,5.2-11.6,11.6-11.6h227
                 c6.4,0,11.6,5.2,11.6,11.6v325.7c0,6.4-5.2,11.6-11.6,11.6c-7.5,0-13.5,6-13.5,13.5s6,13.5,13.5,13.5c21.3,0,38.6-17.3,38.6-38.6
                 V38.6C439.65,17.3,422.35,0,401.05,0z"/>
+            </svg>
+        </span>
+        <span draggable="false" class="button-command" id="save-button" onclick="saveColor()">
+            <svg viewBox="0 0 469.333 469.333" style="enable-background:new 0 0 469.333 469.333;" xml:space="preserve">
+			    <path d="M466.208,88.458L380.875,3.125c-2-2-4.708-3.125-7.542-3.125H42.667C19.146,0,0,19.135,0,42.667v384
+			    	c0,23.531,19.146,42.667,42.667,42.667h384c23.521,0,42.667-19.135,42.667-42.667V96
+			    	C469.333,93.167,468.208,90.458,466.208,88.458z M106.667,21.333h234.667v128c0,11.76-9.563,21.333-21.333,21.333H128
+			    	c-11.771,0-21.333-9.573-21.333-21.333V21.333z M384,448H85.333V256H384V448z M448,426.667c0,11.76-9.563,21.333-21.333,21.333
+			    	h-21.333V245.333c0-5.896-4.771-10.667-10.667-10.667h-320c-5.896,0-10.667,4.771-10.667,10.667V448H42.667
+			    	c-11.771,0-21.333-9.573-21.333-21.333v-384c0-11.76,9.563-21.333,21.333-21.333h42.667v128C85.333,172.865,104.479,192,128,192
+			    	h192c23.521,0,42.667-19.135,42.667-42.667v-128h6.25L448,100.417V426.667z"/>
+			    <path d="M266.667,149.333h42.667c5.896,0,10.667-4.771,10.667-10.667V53.333c0-5.896-4.771-10.667-10.667-10.667h-42.667
+			    	c-5.896,0-10.667,4.771-10.667,10.667v85.333C256,144.562,260.771,149.333,266.667,149.333z M277.333,64h21.333v64h-21.333V64z"/>
 
             </svg>
 
-        </a>
-
-        <a href="javascript:void(0);" draggable="false" class="button-command" id="refresh-button" onclick="randomColor()">
+        </span>
+        <span draggable="false" class="button-command" id="refresh-button" onclick="randomColor()">
             <!-- <img src="./assets/refresh.png" alt="" draggable="false"> -->
         
             <svg viewBox="0 0 489.711 489.711" style="enable-background:new 0 0 489.711 489.711;" xml:space="preserve">
@@ -59,16 +78,31 @@
                     c-7.4,0.7-12.9,7.2-12.2,14.7l8,88.9c0.6,7,6.5,12.3,13.4,12.3c0.4,0,0.8,0,1.2-0.1c7.4-0.7,12.9-7.2,12.2-14.7l-4.8-54.1
                     c36.3,29.4,80.8,46.5,128.3,48.9c3.8,0.2,7.6,0.3,11.3,0.3c55.1,0,107.5-20.2,148.7-57.4
                     C456.056,357.911,481.656,274.811,462.456,195.511z"/>
-
             </svg>
-
-        </a>
+        </span>
+        
     </div>
     
     <div id="color-selector" draggable="false">
         <input type="text" value="#" onkeyup="inputEdit(this)" maxlength="7" spellcheck="false" autofocus="true" autocomplete="off" autocorrect="off" autocapitalize="off" draggable="false" >
     </div>
 
+    <p id="max-saved" class="error">you've reached the save limit (100)</p>
+
+    <div id="saved-menu" class="menu">
+
+        <h1>your saved colors (<span id="color-counter">0</span>)</h1>
+        <p><span onclick="clearFavourites()">click here to delete all saved colors</span></p>
+
+        <div id="saved-colors-container" class="color-container"></div>
+    </div>
+
+    <div id="history-menu" class="menu">
+        <h1>history</h1>
+        <div id="history-colors-container" class="color-container"></div>
+    </div>
+
+    <script src="./script/events.js"></script>
 </body>
 </html>
 

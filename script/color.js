@@ -1,23 +1,5 @@
 let hex
-
-$(window).on("load", () => {
-    $("#color-selector input")[0].selectionStart = $("#color-selector input")[0].selectionEnd = 10000
-    $("body").removeClass("preload")
-
-    if (window.location.hash != "") {
-        const element = $("#color-selector input")[0]
-
-        element.value = window.location.hash.substr(0, 7)
-
-        inputEdit(element)
-    } else {
-        const element = $("#color-selector input")[0]
-
-        element.value = `#${getRandomHex()}`
-
-        inputEdit(element)
-    }
-})
+let data
 
 function inputEdit(element) {
     element.value = element.value.toLowerCase()
@@ -63,6 +45,8 @@ function inputEdit(element) {
 
     if (newHex != "") {
         $("body").css("background-color", "#" + newHex)
+        data.addToHistory(`#${newHex}`)
+        data.save()
     }
 
     const luminance = getLuminance("#" + newHex)
@@ -71,12 +55,22 @@ function inputEdit(element) {
 
     window.location.hash = hex
 
+    let saveOpacity = 0
+
+    if (data.isFavourite(hex)) {
+        saveOpacity = 100
+    }
+
     if (luminance < 40) {
         $("#color-selector input").css("color", "white")
         $(".button-command svg").css("fill", "white")
+        $("header h1").css("color", "white")
+        $("#save-button").css("border-bottom-color", `rgb(255, 255, 255, ${saveOpacity})`)
     } else {
         $("#color-selector input").css("color", "black")
         $(".button-command svg").css("fill", "black")
+        $("header h1").css("color", "black")
+        $("#save-button").css("border-bottom-color", `rgb(0, 0, 0, ${saveOpacity})`)
     }
 }
 
@@ -120,12 +114,85 @@ function getRandomHex() {
     return a
 }
 
+function getData() {
+    data = Data.fromCookie()
+    setTimeout(() => {
+        loadSaved(data.getFavourites())
+        loadHistory(data.getHistory())
+    }, 500);
+    
+    return console.log(data)
+}
+
+function saveColor() {
+    const luminance = getLuminance(`#${hex}`)
+    let saveOpacity = 0
+
+    if (data.isFavourite(hex)) {
+        data.removeFromFavourites(hex)
+        saveOpacity = 0
+        $(hex).remove()
+    } else {
+        if (data.getFavourites().length == 100) {
+
+            if ($("#max-saved").hasClass("fade-in") || $("#max-saved").hasClass("fade-out") || $("#max-saved").css("display") == "block") {
+                return
+            }
+            
+            $("#max-saved").addClass("fade-in")
+            $("#max-saved").css("display", "block")
+            
+            setTimeout(() => {
+                $("#max-saved").removeClass("fade-in")
+                $("#max-saved").addClass("fade-out")
+
+                setTimeout(() => {
+                    $("#max-saved").css("display", "none")
+                    $("#max-saved").removeClass("fade-out")
+                }, 600);
+            }, 2000);
+            return
+        }
+        data.addToFavourites(hex)
+        saveOpacity = 100
+        $("#saved-colors-container").prepend(`<div id="${hex.substr(1, 7)}" class="saved-color" style="background-color: ${hex}" onclick="showColor('${hex}')"></div>`)
+    }
+
+    data.save()
+
+    if (luminance < 40) {
+        $("#save-button").css("border-bottom-color", `rgb(255, 255, 255, ${saveOpacity})`)
+    } else {
+        $("#save-button").css("border-bottom-color", `rgb(0, 0, 0, ${saveOpacity})`)
+    }
+
+    $("#color-counter").text(data.getFavourites().length)
+    bindSavedEvent()
+}
+
+function clearFavourites() {
+    data.deleteAllFavourites()
+    data.save()
+    $("#saved-colors-container").empty()
+    $("#color-counter").text("0")
+}
+
+function showColor(color) {
+    const element = $("#color-selector input")[0]
+
+    element.value = color
+
+    inputEdit(element)
+}
+
 //totally not copy and pasted from stackoverflow
 function componentToHex(c) {
     const hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
-  }
+}
   
-  function rgbToHex(r, g, b) {
+function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
-  }
+}
+
+getData()
