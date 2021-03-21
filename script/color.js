@@ -69,7 +69,7 @@ function inputEdit(element) {
         $("#color-selector input").css("color", "white")
         $(".button-command svg").css("fill", "white")
         $("h1").css("color", "white")
-        $("p").css("color", "black")
+        $("p").css("color", "white")
         $("#save-button").css("border-bottom-color", `rgb(255, 255, 255, ${saveOpacity})`)
     } else {
         $("#color-selector input").css("color", "black")
