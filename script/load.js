@@ -30,7 +30,7 @@ $(window).on("load", () => {
         }
 
         for (c of colors) {
-            $("#palette-colors-container").append(`<div id="${c}-palette" class="palette-color" style="background-color: #${c}" onclick="showColor('#${c}')"><h2 id="${c}-palette-label" class="label" >#${c}</p></div>`)
+            $("#palette-colors-container").append(`<div id="${c}-palette" class="palette-color" style="background-color: #${c}" onclick="showColor('#${c}')"><h2 id="${c}-palette-label" class="label" >#${c}</h2></div>`)
         }
 
         $("body").css("background-color", background)
@@ -78,7 +78,7 @@ $(window).on("load", () => {
 
 function loadSaved(saved) {
     for (color of saved) {
-        $("#saved-colors-container").append(`<div id="${color.substr(1, 7)}" class="saved-color" style="background-color: ${color}" onclick="showColor('${color}')"><h2 id="${color.substr(1, 7)}-label" class="label" >${color}</p></div>`)
+        $("#saved-colors-container").append(`<div id="${color.substr(1, 7)}" class="saved-color" style="background-color: ${color}" onclick="showColor('${color}')"><h2 id="${color.substr(1, 7)}-label" class="label" >${color}</h2></div>`)
     }
 
     $("#color-counter").text(saved.length)
@@ -87,7 +87,7 @@ function loadSaved(saved) {
 
 function loadHistory(history) {
     for (color of history) {
-        $("#history-colors-container").append(`<div id="${color.substr(1, 7)}-history" class="history-color" style="background-color: ${color}" onclick="showColor('${color}')"><h2 id="${color.substr(1, 7)}-history-label" class="label" >${color}</p></div>`)
+        $("#history-colors-container").append(`<div id="${color.substr(1, 7)}-history" class="history-color" style="background-color: ${color}" onclick="showColor('${color}')"><h2 id="${color.substr(1, 7)}-history-label" class="label" >${color}</h2></div>`)
     }
 
     bindHistoryEvent()
