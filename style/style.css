@@ -167,6 +167,27 @@ span {
     transform: translate(-50%, 1000%);
 }
 
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+  
+/* Track */
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0);
+}
+  
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #161b1980;
+    border-radius: 1rem;
+}
+  
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #202523;
+}
+
 .fade-in {
     animation: fade-in 1.2s;
 }
