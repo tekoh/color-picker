@@ -4,8 +4,6 @@ function bindSavedEvent() {
 
         const id = event.currentTarget.id
 
-        const luminance = getLuminance()
-
         $(`#${id}-label`).css("opacity", "100%")
     }, event => {
         event.preventDefault()
@@ -22,8 +20,6 @@ function bindHistoryEvent() {
 
         const id = event.currentTarget.id
 
-        const luminance = getLuminance()
-
         $(`#${id}-label`).css("opacity", "100%")
     }, event => {
         event.preventDefault()
@@ -39,8 +35,6 @@ function bindPaletteEvent() {
         event.preventDefault()
 
         const id = event.currentTarget.id
-
-        const luminance = getLuminance()
 
         $(`#${id}-label`).css("opacity", "100%")
     }, event => {
