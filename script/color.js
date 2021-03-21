@@ -161,7 +161,8 @@ function saveColor() {
         }
         data.addToFavourites(hex)
         saveOpacity = 100
-        $("#saved-colors-container").prepend(`<div id="${hex.substr(1, 7)}" class="saved-color" style="background-color: ${hex}" onclick="showColor('${hex}')"></div>`)
+        $("#saved-colors-container").prepend(`<div id="${hex.substr(1, 7)}" class="saved-color" style="background-color: ${hex}" onclick="showColor('${hex}')"><h2 id="${hex.substr(1, 7)}-label" class="label" >${hex}</h2></div>`)
+        bindSavedEvent()
     }
 
     data.save()
