@@ -84,6 +84,10 @@ header h1 {
     height: 4vh;
 }
 
+#save-button {
+    border-bottom: rgba(0, 0, 0, 0) solid 3px;
+}
+
 span {
     cursor: pointer;
 }

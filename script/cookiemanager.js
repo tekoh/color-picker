@@ -30,7 +30,7 @@ const Data = class {
      * @returns {Boolean}
      */
     isFavourite(hex) {
-        const index = this.favourites.indexOf(index)
+        const index = this.favourites.indexOf(hex)
 
         if (index != -1) {
             return true
@@ -43,7 +43,7 @@ const Data = class {
      * @param {String} hex
      */
     removeFromFavourites(hex) {
-        const index = this.favourites.indexOf(index)
+        const index = this.favourites.indexOf(hex)
 
         if (index != -1) {
             this.favourites.splice(index, 1)
