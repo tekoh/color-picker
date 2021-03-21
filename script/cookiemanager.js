@@ -50,6 +50,10 @@ const Data = class {
         }
     }
 
+    deleteAllFavourites() {
+        this.favourites = []
+    }
+
     /**
      * @param {String} hex
      */
@@ -58,6 +62,7 @@ const Data = class {
 
         if (index != -1) {
             this.history.splice(index, 1)
+            $(`${hex}-history`).remove()
         }
 
         if (this.history.length >= 75) {
