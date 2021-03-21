@@ -32,15 +32,16 @@ $(window).on("load", () => {
         console.log(colors)
 
         for (c of colors) {
-            $("#palette-colors-container").append(`<div id="${c.substr(1, 7)}-palette" class="palette-color" style="background-color: ${c}" onclick="showColor('${c}')"><h2 id="${c.substr(1, 7)}-label" class="label" >${c}</p></div>`)
+            $("#palette-colors-container").append(`<div id="${c.substr(1, 7)}-palette" class="palette-color" style="background-color: ${c}" onclick="showColor('${c}')"><h2 id="${c.substr(1, 7)}-palette-label" class="label" >${c}</p></div>`)
         }
 
         $("body").css("background-color", background)
 
         $("#palette-name").text(`${name} palette`)
 
+        bindPaletteEvent()
+
         setTimeout(() => {
-            bindPaletteEvent()
             showPalettePage()
         }, 1700);
         
