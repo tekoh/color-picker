@@ -27,7 +27,6 @@ body {
 header {
     width: 100%;
     text-align: center;
-    animation: header-in 1.5s;
 }
 
 header h1 {
@@ -55,7 +54,6 @@ header h1 {
     text-align: center;
     font-family: 'Inconsolata', monospace;
     transition: 0.3s;
-    animation: fade-in 1s;
 }
 
 #buttons-container {
@@ -66,7 +64,6 @@ header h1 {
     transition: 0.5s;
     text-align: center;
     height: auto;
-    animation: fade-in 1.5s;
 }
 
 .button-command {
@@ -103,6 +100,14 @@ span {
 
 .menu {
     display: none;
+}
+
+.fade-in {
+    animation: fade-in 1.2s;
+}
+
+.header-in {
+    animation: header-in 1.5s;
 }
 
 @keyframes header-in {

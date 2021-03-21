@@ -15,4 +15,22 @@ $(window).on("load", () => {
 
         inputEdit(element)
     }
+
+    $("#color-selector").addClass("fade-in")
+
+    $("#buttons-container").css("display", "none")
+    $("header").css("display", "none")
+
+    setTimeout(() => {
+        $("#buttons-container").addClass("fade-in")
+        $("header").addClass("header-in")
+        $("#buttons-container").css("display", "block")
+        $("header").css("display", "block")
+    }, 500);
+
+    setTimeout(() => {
+        $("#buttons-container").removeClass("fade-in")
+        $("#color-selector input").removeClass("fade-in")
+        $("header").removeClass("header-in")
+    }, 2000)
 })
