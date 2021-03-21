@@ -129,6 +129,7 @@ span {
 
     #buttons-container {
         transform: translate(-50%, 350%);
+        width: 100%;
     }
 
     .button-command {
@@ -141,5 +142,10 @@ span {
 
     .button-command img {
         height: 2rem;
+    }
+
+    header h1 {
+        margin: 0.5rem 1rem;
+        font-size: 1.5rem;
     }
 }
