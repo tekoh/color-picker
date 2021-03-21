@@ -68,12 +68,12 @@ function inputEdit(element) {
     if (luminance < 40) {
         $("#color-selector input").css("color", "white")
         $(".button-command svg").css("fill", "white")
-        $("header h1").css("color", "white")
+        $("h1").css("color", "white")
         $("#save-button").css("border-bottom-color", `rgb(255, 255, 255, ${saveOpacity})`)
     } else {
         $("#color-selector input").css("color", "black")
         $(".button-command svg").css("fill", "black")
-        $("header h1").css("color", "black")
+        $("h1").css("color", "black")
         $("#save-button").css("border-bottom-color", `rgb(0, 0, 0, ${saveOpacity})`)
     }
 }
