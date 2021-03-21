@@ -60,6 +60,8 @@ const Data = class {
     addToHistory(hex) {
         const index = this.history.indexOf(hex)
 
+        if (!hex.startsWith("#") || hex.length != 7) return
+
         if (index != -1) {
             this.history.splice(index, 1)
             $(`${hex}-history`).remove()
