@@ -11,8 +11,6 @@ function bindSavedEvent() {
 
         const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
 
-        console.log(luma)
-
         if (luma < 40) {
             $(`#${id}-label`).css("color", "white")
             console.log("white")
@@ -27,7 +25,37 @@ function bindSavedEvent() {
 
         const id = event.currentTarget.id
 
+        if ($(`#${id}-label`).attr("data-keep") == "true") return
+
         $(`#${id}-label`).css("opacity", "0%")
+    })
+
+    $(".saved-color").click(event => {
+        event.preventDefault()
+
+        const id = event.currentTarget.id
+
+        const rgb = parseInt(id, 16);   // convert rrggbb to decimal
+        const r = (rgb >> 16) & 0xff;  // extract red
+        const g = (rgb >>  8) & 0xff;  // extract green
+        const b = (rgb >>  0) & 0xff;  // extract blue
+
+        const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+
+        if (luma < 40) {
+            $(`#${id}-label`).css("color", "white")
+        } else {
+            $(`#${id}-label`).css("color", "black")
+        }
+
+        $(`#${id}-label`).css("opacity", "100%")
+
+        $(`#${id}-label`).attr("data-keep", "true")
+
+        setTimeout(() => {
+            $(`#${id}-label`).css("opacity", "0%")
+            $(`#${id}-label`).attr("data-keep", "false")
+        }, 5000);
     })
 }
 
@@ -44,14 +72,10 @@ function bindHistoryEvent() {
 
         const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
 
-        console.log(luma)
-
         if (luma < 40) {
             $(`#${id}-label`).css("color", "white")
-            console.log("white")
         } else {
             $(`#${id}-label`).css("color", "black")
-            console.log("black")
         }
 
         $(`#${id}-label`).css("opacity", "100%")
@@ -60,7 +84,37 @@ function bindHistoryEvent() {
 
         const id = event.currentTarget.id
 
+        if ($(`#${id}-label`).attr("data-keep") == "true") return
+
         $(`#${id}-label`).css("opacity", "0%")
+    })
+
+    $(".history-color").click(event => {
+        event.preventDefault()
+
+        const id = event.currentTarget.id
+
+        const rgb = parseInt(id, 16);   // convert rrggbb to decimal
+        const r = (rgb >> 16) & 0xff;  // extract red
+        const g = (rgb >>  8) & 0xff;  // extract green
+        const b = (rgb >>  0) & 0xff;  // extract blue
+
+        const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+
+        if (luma < 40) {
+            $(`#${id}-label`).css("color", "white")
+        } else {
+            $(`#${id}-label`).css("color", "black")
+        }
+
+        $(`#${id}-label`).css("opacity", "100%")
+
+        $(`#${id}-label`).attr("data-keep", "true")
+
+        setTimeout(() => {
+            $(`#${id}-label`).css("opacity", "0%")
+            $(`#${id}-label`).attr("data-keep", "false")
+        }, 5000);
     })
 }
 
@@ -77,14 +131,10 @@ function bindPaletteEvent() {
 
         const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
 
-        console.log(luma)
-
         if (luma < 40) {
             $(`#${id}-label`).css("color", "white")
-            console.log("white")
         } else {
             $(`#${id}-label`).css("color", "black")
-            console.log("black")
         }
 
         $(`#${id}-label`).css("opacity", "100%")
@@ -93,6 +143,36 @@ function bindPaletteEvent() {
 
         const id = event.currentTarget.id
 
+        if ($(`#${id}-label`).attr("data-keep") == "true") return
+
         $(`#${id}-label`).css("opacity", "0%")
+    })
+
+    $(".palette-color").click(event => {
+        event.preventDefault()
+
+        const id = event.currentTarget.id
+
+        const rgb = parseInt(id, 16);   // convert rrggbb to decimal
+        const r = (rgb >> 16) & 0xff;  // extract red
+        const g = (rgb >>  8) & 0xff;  // extract green
+        const b = (rgb >>  0) & 0xff;  // extract blue
+
+        const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+
+        if (luma < 40) {
+            $(`#${id}-label`).css("color", "white")
+        } else {
+            $(`#${id}-label`).css("color", "black")
+        }
+
+        $(`#${id}-label`).css("opacity", "100%")
+
+        $(`#${id}-label`).attr("data-keep", "true")
+
+        setTimeout(() => {
+            $(`#${id}-label`).css("opacity", "0%")
+            $(`#${id}-label`).attr("data-keep", "false")
+        }, 5000);
     })
 }
