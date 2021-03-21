@@ -65,8 +65,6 @@ const Data = class {
         }
 
         this.history.unshift(hex)
-
-        console.log(this.history)
     }
 
     /**
@@ -109,8 +107,6 @@ const Data = class {
             return new Data([], [])
         }
 
-        console.log(cookie)
-
         let favourites = cookie.substr(2, cookie.length)
 
         favourites = favourites.split("/\\")[0]
@@ -123,11 +119,7 @@ const Data = class {
 
         let history = cookie.split("/\\")[1]
 
-        console.log("history1: ", history)
-
         history = history.split("|")
-
-        console.log("history3: ", history)
 
         if (history.indexOf("") != -1) {
             history.splice(history.indexOf(""))
