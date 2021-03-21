@@ -12,7 +12,7 @@ function hideHome() {
 }
 
 function showHomeButton() {
-    $("#save-button").css("display", "none")
+    $("#saved-button").css("display", "none")
     $("#history-button").css("display", "none")
 
     $("#home-button").css("display", "inline-block")
@@ -57,7 +57,7 @@ function showHomePage() {
 
     setTimeout(() => {
         $("#home-button").css("display", "none")
-        $("#save-button").css("display", "inline-block")
+        $("#saved-button").css("display", "inline-block")
         $("#history-button").css("display", "inline-block")
 
         $("header").removeClass("header-out")

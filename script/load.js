@@ -37,8 +37,9 @@ $(window).on("load", () => {
 
 function loadSaved(saved) {
     for (saved of saved) {
-        $("#saved-colors-container").append(`<div class="saved-color" style="background-color: ${saved}"></div>`)
+        $("#saved-colors-container").append(`<div id="${saved.substr(1, 7)}" class="saved-color" style="background-color: ${saved}" onclick="showColor('${saved}')"><h2 id="${saved.substr(1, 7)}-label" class="label" >${saved}</p></div>`)
     }
 
     $("#color-counter").text(saved.length)
+    bindSavedEvent()
 }

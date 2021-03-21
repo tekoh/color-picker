@@ -130,9 +130,12 @@ function saveColor() {
     if (data.isFavourite(hex)) {
         data.removeFromFavourites(hex)
         saveOpacity = 0
+        $(hex).remove()
     } else {
         data.addToFavourites(hex)
         saveOpacity = 100
+        $("#saved-colors-container").prepend(`<div id="${hex.substr(1, 7)}" class="saved-color" style="background-color: ${hex}" onclick="showColor('${hex}')"></div>`)
+        bindSavedEvent()
     }
 
     data.save()
@@ -144,13 +147,21 @@ function saveColor() {
     }
 }
 
+function showColor(color) {
+    const element = $("#color-selector input")[0]
+
+    element.value = color
+
+    inputEdit(element)
+}
+
 //totally not copy and pasted from stackoverflow
 function componentToHex(c) {
     const hex = c.toString(16);
     return hex.length == 1 ? "0" + hex : hex;
 }
   
-  function rgbToHex(r, g, b) {
+function rgbToHex(r, g, b) {
     return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
 }
 
