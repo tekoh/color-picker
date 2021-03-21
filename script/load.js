@@ -30,7 +30,15 @@ $(window).on("load", () => {
 
     setTimeout(() => {
         $("#buttons-container").removeClass("fade-in")
-        $("#color-selector input").removeClass("fade-in")
+        $("#color-selector").removeClass("fade-in")
         $("header").removeClass("header-in")
     }, 2000)
 })
+
+function loadSaved(saved) {
+    for (saved of saved) {
+        $("#saved-colors-container").append(`<div class="saved-color" style="background-color: ${saved}"></div>`)
+    }
+
+    $("#color-counter").text(saved.length)
+}

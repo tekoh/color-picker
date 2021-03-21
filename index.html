@@ -28,11 +28,13 @@
     <script src="./script/cookiemanager.js"> </script>
     <script src="./script/color.js"> </script>
     <script src="./script/load.js"> </script>
+    <script src="./script/pagemanager.js"> </script>
 </head>
 <body class="preload" onselectstart="return false">
     <header>
-        <h1><span>SAVED</span></h1>
-        <h1><span>HISTORY</span></h1>
+        <h1 id="save-button"><span draggable="false" onclick="showSavePage()">SAVED</span></h1>
+        <h1 id="history-button"><span draggable="false" onclick="showHistoryPage()">HISTORY</span></h1>
+        <h1 id="home-button" style="display: none"><span draggable="false" onclick="showHomePage()">HOME</span></h1>
     </header>
 
     <div id="buttons-container" draggable="false" onselect="return false">
@@ -86,15 +88,14 @@
     </div>
 
     <div id="saved-menu" class="menu">
-        <div id="saved-colors-container" class="color-container">
 
-        </div>
+        <h1>your saved colors (<span id="color-counter">0</span>)</h1>
+
+        <div id="saved-colors-container" class="color-container"></div>
     </div>
 
     <div id="history-menu" class="menu">
-        <div id="history-colors-container" class="color-container">
-
-        </div>
+        <div id="history-colors-container" class="color-container"></div>
     </div>
 
 </body>

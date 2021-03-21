@@ -116,6 +116,10 @@ function getRandomHex() {
 
 function getData() {
     data = Data.fromCookie()
+    setTimeout(() => {
+        loadSaved(data.favourites)
+    }, 500);
+    
     return console.log(data)
 }
 
