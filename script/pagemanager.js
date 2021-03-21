@@ -96,3 +96,17 @@ function showHistoryPage() {
         $("#history-menu").removeClass("fade-in")
     }, 1200);
 }
+
+function showPalettePage() {
+    hideHome()
+    setTimeout(() => {
+        showHomeButton()
+    }, 500);
+
+    $("#palette-menu").addClass("fade-in")
+    $("#palette-menu").css("display", "block")
+
+    setTimeout(() => {
+        $("#palette-menu").removeClass("fade-in")
+    }, 1200);
+}
