@@ -2,7 +2,7 @@
 
 [color.tekoh.net](https://color.tekoh.net)
 
-#### status: usable
+#### status: complete
 
 ### 💡 ideas
 
